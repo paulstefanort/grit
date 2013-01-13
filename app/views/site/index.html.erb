@@ -9,7 +9,7 @@
 
 		<script type="text/javascript">
 			$(function() {
-				window.router = new Grit.Routers.ThingsController({things: <%= @things.to_json.html_safe -%>});
+				window.router = new Grit.Routers.ThingsRouter({things: <%= @things.to_json.html_safe -%>});
 				Backbone.history.start();
 			});
 		</script>
