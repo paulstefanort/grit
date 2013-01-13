@@ -4,5 +4,14 @@
 			<h1>Site#index</h1>
 		</div>
 		<p>Find me in app/views/site/index.html.erb</p>
+
+		<div id="things"></div>
+
+		<script type="text/javascript">
+			$(function() {
+				window.router = new Grit.Routers.ThingsController({things: <%= @things.to_json.html_safe -%>});
+				Backbone.history.start();
+			});
+		</script>
 	</div>
 </div>
