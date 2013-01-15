@@ -8,11 +8,18 @@ class Grit.Views.Things.NewView extends Backbone.View
 
   constructor: (options) ->
     super(options)
+    console.log(options)
     @model = new @collection.model()
+    @indexView = options.indexView
 
     @model.bind("change:errors", () =>
       this.render()
     )
+
+  addedItem: () ->
+    @model = new @collection.model()
+    this.render()
+    $("#content").focus()
 
   save: (e) ->
     e.preventDefault()
@@ -23,7 +30,9 @@ class Grit.Views.Things.NewView extends Backbone.View
     @collection.create(@model.toJSON(),
       success: (thing) =>
         @model = thing
-        window.location.hash = "/#{@model.id}"
+        @indexView.performOperation(thing)
+        this.addedItem()
+        # window.location.hash = "/#{@model.id}"
 
       error: (thing, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})

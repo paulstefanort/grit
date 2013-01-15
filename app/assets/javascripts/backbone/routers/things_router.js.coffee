@@ -18,6 +18,11 @@ class Grit.Routers.ThingsRouter extends Backbone.Router
     @view = new Grit.Views.Things.IndexView(things: @things)
     $("#things").html(@view.render().el)
 
+    newEntryFormView = new Grit.Views.Things.NewView(collection: @things, indexView: @view)
+    newEntryFormView.on('addedNewEntry', @view.render, @view)
+    newEntryFormView.off('addedNewEntry', @view.render, @view)
+    $("#new_entry_form").html(newEntryFormView.render().el)
+
   show: (id) ->
     thing = @things.get(id)
 

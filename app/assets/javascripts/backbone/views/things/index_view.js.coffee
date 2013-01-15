@@ -1,10 +1,15 @@
 Grit.Views.Things ||= {}
 
 class Grit.Views.Things.IndexView extends Backbone.View
+  rendered: false
+
   template: JST["backbone/templates/things/index"]
 
   initialize: () ->
     @options.things.bind('reset', @addAll)
+	
+  performOperation: (model) =>
+    this.render()
 
   addAll: () =>
     @options.things.each(@addOne)
