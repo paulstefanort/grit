@@ -8,7 +8,6 @@ class Grit.Views.Things.NewView extends Backbone.View
 
   constructor: (options) ->
     super(options)
-    console.log(options)
     @model = new @collection.model()
     @indexView = options.indexView
 
