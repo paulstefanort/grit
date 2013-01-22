@@ -33,4 +33,4 @@ class Grit.Routers.ThingsRouter extends Backbone.Router
     thing = @things.get(id)
 
     @view = new Grit.Views.Things.EditView(model: thing)
-    $("#things").html(@view.render().el)
+    $("#thing" + id).html(@view.render().el)

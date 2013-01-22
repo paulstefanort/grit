@@ -13,7 +13,7 @@ class Grit.Views.Things.EditView extends Backbone.View
     @model.save(null,
       success: (thing) =>
         @model = thing
-        window.location.hash = "/#{@model.id}"
+        window.location.hash = "/index"
     )
 
   render: ->
