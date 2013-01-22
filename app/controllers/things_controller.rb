@@ -1,6 +1,6 @@
 class ThingsController < ApplicationController
   def index
-		@things = Thing.all
+		@things = Thing.order('created_at ASC').all
   end
 
   def create
