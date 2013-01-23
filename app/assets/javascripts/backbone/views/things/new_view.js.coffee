@@ -26,6 +26,10 @@ class Grit.Views.Things.NewView extends Backbone.View
 
     @model.unset("errors")
 
+    console.log(@model)
+    $("#content").focus() if (@model.attributes.content == "" || @model.attributes.content == null)
+    return if (@model.attributes.content == "" || @model.attributes.content == null)
+
     @collection.create(@model.toJSON(),
       success: (thing) =>
         @model = thing
