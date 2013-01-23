@@ -26,7 +26,6 @@ class Grit.Views.Things.NewView extends Backbone.View
 
     @model.unset("errors")
 
-    console.log(@model)
     $("#content").focus() if (@model.attributes.content == "" || @model.attributes.content == null)
     return if (@model.attributes.content == "" || @model.attributes.content == null)
 
@@ -35,7 +34,6 @@ class Grit.Views.Things.NewView extends Backbone.View
         @model = thing
         @indexView.performOperation(thing)
         this.addedItem()
-        # window.location.hash = "/#{@model.id}"
 
       error: (thing, jqXHR) =>
         @model.set({errors: $.parseJSON(jqXHR.responseText)})
