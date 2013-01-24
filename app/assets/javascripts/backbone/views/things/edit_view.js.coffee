@@ -5,6 +5,10 @@ class Grit.Views.Things.EditView extends Backbone.View
 
   events:
     "submit #edit-thing": "update"
+    "keyup #edit-thing": "keyup"
+ 
+  keyup: (e) ->
+    window.location.hash = "/index" if e.keyCode == 27
 
   update: (e) ->
     e.preventDefault()
