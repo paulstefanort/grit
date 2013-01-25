@@ -22,6 +22,7 @@ class Grit.Routers.ThingsRouter extends Backbone.Router
     newEntryFormView.on('addedNewEntry', @view.render, @view)
     newEntryFormView.off('addedNewEntry', @view.render, @view)
     $("#new_entry_form").html(newEntryFormView.render().el)
+    $("#content").focus();
 
   show: (id) ->
     thing = @things.get(id)
