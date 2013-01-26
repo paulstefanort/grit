@@ -5,11 +5,18 @@ class Grit.Views.Things.IndexView extends Backbone.View
 
   template: JST["backbone/templates/things/index"]
 
+  events:
+    "click pre": "edit"
+
   initialize: () ->
     @options.things.bind('reset', @addAll)
 	
   performOperation: (model) =>
     this.render()
+
+  edit: (item) ->
+    item_id = item.originalEvent.target.dataset.id
+    window.location.hash = "/" + item_id + "/edit"
 
   addAll: () =>
     @options.things.each(@addOne)
