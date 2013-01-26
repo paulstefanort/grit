@@ -19,6 +19,7 @@ class Grit.Views.Things.NewView extends Backbone.View
     @model = new @collection.model()
     this.render()
     $("#content").focus()
+    this.lastKeyCode = 0
 
   save: (e) ->
     e.preventDefault()
