@@ -8,6 +8,7 @@ class Grit.Views.Things.IndexView extends Backbone.View
   events:
     "click pre": "edit"
     "click .merge": "merge"
+    "click .merge_up": "mergeUp"
 
   initialize: () ->
     @options.things.bind('reset', @addAll)
@@ -26,6 +27,19 @@ class Grit.Views.Things.IndexView extends Backbone.View
       next_thing = @options.things.get(next_item_id)
       thing.save({content: thing.attributes.content + "\n\n" + next_thing.attributes.content})
       next_thing.destroy()
+      this.render()
+
+  mergeUp: (item) ->
+    item_id = parseInt(item.originalEvent.target.dataset.id)
+    previous_item_id = 0
+    thing = @options.things.get(item_id)
+    @options.things.each (thing) ->
+      if (thing.id < item_id) && (thing.id > previous_item_id)
+        previous_item_id = thing.id
+    if previous_item_id != 0
+      previous_thing = @options.things.get(previous_item_id)
+      thing.save({content: previous_thing.attributes.content + "\n\n" + thing.attributes.content})
+      previous_thing.destroy()
       this.render()
 
   edit: (item) ->
