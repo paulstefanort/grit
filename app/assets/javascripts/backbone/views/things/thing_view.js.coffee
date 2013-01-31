@@ -9,8 +9,9 @@ class Grit.Views.Things.ThingView extends Backbone.View
   tagName: "tr"
 
   destroy: () ->
-    @model.destroy()
-    this.remove()
+    if confirm "Are you sure you want to delete this?"
+      @model.destroy()
+      this.remove()
 
     return false
 
