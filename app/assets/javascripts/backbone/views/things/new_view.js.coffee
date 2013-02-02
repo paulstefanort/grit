@@ -18,7 +18,6 @@ class Grit.Views.Things.NewView extends Backbone.View
   addedItem: () ->
     @model = new @collection.model()
     this.render()
-    $("#content").focus()
     this.lastKeyCode = 0
 
   save: (e) ->
