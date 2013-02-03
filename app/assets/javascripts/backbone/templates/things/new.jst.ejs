@@ -2,7 +2,7 @@
 <div class="span6">
 <form id="new-thing" name="thing" style="display:none;">
 	<textarea name="content" id="content" class="input-block-level" rows="10"><%= content %></textarea>
-	<input type="submit" class="btn" value="Add New Item">
+	<input type="submit" class="btn" value="Add New Item"> <a href="#" id="hide_add_form_link">Cancel</a>
 </form>
 <p><button class="btn" id="show_add_form_button">Add New Item</button></p>
 </div>
@@ -13,6 +13,13 @@ $(document).ready(function() {
 		$(this).parent().hide();
 		$('#new-thing').fadeIn('slow');
 		$('#content').focus();
+	});
+
+	$('#hide_add_form_link').click(function(event) {
+		event.preventDefault();
+		$('#new-thing').fadeOut('slow', function() {
+			$('#show_add_form_button').parent().fadeIn('slow');
+		});
 	});
 });
 </script>
