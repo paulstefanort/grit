@@ -10,16 +10,16 @@
 <script>
 $(document).ready(function() {
 	$('#show_add_form_button').click(function(event) {
-		$(this).parent().fadeOut('slow', function() {
-			$('#new-thing').fadeIn('slow');
+		$(this).parent().fadeOut('fast', function() {
+			$('#new-thing').fadeIn('fast');
 			$('#content').focus();
 		});
 	});
 
 	$('#hide_add_form_link').click(function(event) {
 		event.preventDefault();
-		$('#new-thing').fadeOut('slow', function() {
-			$('#show_add_form_button').parent().fadeIn('slow');
+		$('#new-thing').fadeOut('fast', function() {
+			$('#show_add_form_button').parent().fadeIn('fast');
 		});
 	});
 });
