@@ -10,9 +10,10 @@
 <script>
 $(document).ready(function() {
 	$('#show_add_form_button').click(function(event) {
-		$(this).parent().hide();
-		$('#new-thing').fadeIn('slow');
-		$('#content').focus();
+		$(this).parent().fadeOut('slow', function() {
+			$('#new-thing').fadeIn('slow');
+			$('#content').focus();
+		});
 	});
 
 	$('#hide_add_form_link').click(function(event) {
