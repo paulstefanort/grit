@@ -43,6 +43,7 @@ class Grit.Views.Things.IndexView extends Backbone.View
       this.render()
 
   edit: (item) ->
+    this.render()
     item_id = item.originalEvent.target.dataset.id
     window.location.hash = "/" + item_id + "/edit"
 
